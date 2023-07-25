@@ -1,0 +1,35 @@
+// I mad this code for fun, its a puzzle which the user has to input a number and the Math.random will pick a random number
+and if the user got the number whoch Math.Random guessed then it says Congratulations if it doesnt it says that it is incorrect 
+and then continues to tell the answer,the Number varries each time //
+
+
+import java.util.Scanner;
+
+public class Puzzle {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+
+        
+        int Sn = (int) (Math.random() * 50) + 1;
+
+        
+        System.out.println("Welcome to the Number Puzzle Game!");
+        System.out.println("Guess a number between 1 and 50.");
+
+        
+        System.out.print("Enter your guess: ");
+        int UserG = sc.nextInt();
+
+        
+        if (UserG == Sn) {
+            System.out.println("Congratulations! You guessed the secret number: " + Sn);
+        } else {
+            System.out.println(" That's incorrect The secret number was: " + Sn);
+        }
+
+        sc.close();
+	}
+
+}

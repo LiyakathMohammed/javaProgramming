@@ -12,9 +12,9 @@ public class Swap {
 	        int n2 = sc.nextInt();
 
 	        
-	        int temp = n1;
+	        int A = n1;
 	        n1 = n2;
-	        n2 = temp;
+	        n2 = A;
 
 	        
 	        System.out.println("Swapped numbers: ");

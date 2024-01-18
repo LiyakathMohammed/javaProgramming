@@ -1,0 +1,77 @@
+import java.util.Scanner;
+import java.util.*;
+
+public class ACSL2 {
+	public static HashMap<Character, Integer> lower = new HashMap<Character, Integer>();
+	public static HashMap<Character, Integer> upper = new HashMap<Character, Integer>();
+	public static HashMap<Character, Integer> plain = new HashMap<Character, Integer>();
+	public static HashMap<Character, Integer> junk = new HashMap<Character, Integer>();
+	
+	public static void plain(String sentence) {
+		sentence = sentence.toLowerCase();
+		int length = sentence.length();
+		char character;
+		for(int index = 0; index<length; index++) {
+			character = sentence.charAt(index);
+			plain.put(character, index);
+		}
+	}
+	public static void buildHashMap(String sentence) {
+		sentence = sentence.replaceAll("[^a-zA-Z0-9]", " ");  
+		int len = sentence.length(), count; 
+		char ch;
+		for(int ind = 0; ind < len; ind++) {
+			ch = sentence.charAt(ind);
+			if(ch>= 'a' && ch <= 'z') {
+				if(lower.containsKey(ch)) {
+					count = lower.get(ch);
+				lower.put(ch, count+1);
+				}
+				else 
+					lower.put(ch, 1);
+			}
+			else {
+				if(upper.containsKey(ch)) {
+					count = upper.get(ch);
+					upper.put(ch, count+1);
+				}
+				else 
+					upper.put(ch, 1);
+			}
+		}
+	}
+	public static int vowelHashMap(String sentence) {
+		int len = sentence.length(), count=0; 
+		sentence = sentence.toLowerCase();
+		char ch;
+		for(int ind=0; ind<len; ind++) {
+			ch = sentence.charAt(ind);
+			// System.out.println("vowel "+ch);
+			if(ch == 'a' | ch == 'e' | ch == 'i' | ch == 'o' | ch == 'u') { 
+				count++;
+			}
+			else
+				junk.put(ch, ind);
+		}
+		return count;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		
+		String sentence = sc.nextLine();
+		sentence = sentence.replaceAll("[^a-zA-Z]", "");
+		buildHashMap(sentence);
+		plain(sentence);
+		System.out.println(plain.size());
+		System.out.println(vowelHashMap(sentence));
+		// number of vowels
+		System.out.println(upper.size());
+		// number of times the most frequent letter appears
+		// longest word in the string
+		// The quick brown fox, named Roxanne, jumped over Bruno, the lazy dog.
+		// The 2019 All-Star Competition is at Wayne Hills HS in Wayne, New Jersey.
+		// | 'e' | 'i' | 'o' | 'u')
+	}
+}
+

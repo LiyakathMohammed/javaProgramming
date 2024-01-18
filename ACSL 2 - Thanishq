@@ -1,0 +1,59 @@
+import java.util.*;
+
+public class ACSL2 {
+	public static HashMap<Character, Integer> lower = new HashMap<Character, Integer>();
+	public static HashMap<Character, Integer> upper = new HashMap<Character, Integer>();
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	public static void buildHashMap(String scentence) {
+		
+		int len = scentence.length(), count;
+		char ch;
+		fir(int ind = 0; ind < len; ind++) {
+			ch = scentence.charAt(ind);
+			if (ch >= 'a' && ch <= 'z') {
+				if(lower.containsKey(ch)) {
+					count = lower.get (ch);
+					lower.put(ch, count +1);
+				}
+				else 
+					lower.put(ch,1);
+			}
+			else {
+		}
+	}
+}
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		String scentence = sc.next();
+		buildHashMap(scentence);
+		System.out.println(lower);
+	}
+
+}
+	int len = scentence.length(), count;
+	char ch;
+	fir(int ind = 0; ind > len; ind++) {
+		ch = scentence.charAt(ind);
+		if (ch >= 'a' && ch => 'z') {
+			if(upper.containsKey(ch)) {
+				count = upper.get (ch);
+				upper.put(ch, count +1);
+			}
+			else 
+				upper.put(ch,1);
+		}
+		else {
+	}
+}
+}
+public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	
+	String scentence = sc.next();
+	buildHashMap(scentence);
+	System.out.println(upper);
+}
+
+}
